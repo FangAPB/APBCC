@@ -335,13 +335,13 @@
     Public Shared MaxFreeMemoryUsedByVBPoolValue As String = Form1.APBCompat.GetString(Form1.APBCompatSection, "MaxFreeMemoryUsedByVBPool", "(none)")
     Public Shared MaxFreeMemoryUsedByIBPoolValue As String = Form1.APBCompat.GetString(Form1.APBCompatSection, "MaxFreeMemoryUsedByIBPool", "(none)")
     '---APBEngine.ini---
-    Public Shared MinSmoothedFrameRateValue As String = Form1.APBEngine.GetString("Engine.GameEngine", "MinSmoothedFrameRate", "(none)")
-    Public Shared MaxSmoothedFrameRateValue As String = Form1.APBEngine.GetString("Engine.GameEngine", "MaxSmoothedFrameRate", "(none)")
-    Public Shared MinDesiredFrameRateValue As String = Form1.APBEngine.GetString("Engine.Client", "MinDesiredFrameRate", "(none)")
+    Public Shared MinSmoothedFrameRateValue As String = Form1.BaseEngine.GetString("Engine.GameEngine", "MinSmoothedFrameRate", "(none)")
+    Public Shared MaxSmoothedFrameRateValue As String = Form1.BaseEngine.GetString("Engine.GameEngine", "MaxSmoothedFrameRate", "(none)")
+    Public Shared MinDesiredFrameRateValue As String = Form1.BaseEngine.GetString("Engine.Client", "MinDesiredFrameRate", "(none)")
     '!-!'!-!'Experimental'!-!'!-!'
-    Public Shared MaxDynamicChunkCountValue As String = Form1.APBEngine.GetString("Engine.PhysicsLODVerticalDestructible", "MaxDynamicChunkCount", "(none)")
-    Public Shared DebrisLifetimeValue As String = Form1.APBEngine.GetString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "(none)")
-    Public Shared ParticlePercentageValue As String = Form1.APBEngine.GetString("Engine.PhysicsLODVerticalEmitter", "ParticlePercentage", "(none)")
+    Public Shared MaxDynamicChunkCountValue As String = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "MaxDynamicChunkCount", "(none)")
+    Public Shared DebrisLifetimeValue As String = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "(none)")
+    Public Shared ParticlePercentageValue As String = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalEmitter", "ParticlePercentage", "(none)")
     '!-!'!-!'END Experimental'!-!'!-!'
     Public Shared ControlConstraintsBucket1and2 As New List(Of Control) From {
     Form1.LabelnCharacterDiffuseWidth,
@@ -1228,13 +1228,13 @@ Form1.TextBoxnMaxMemoryCacheEntryCount
     End Sub
     Public Shared Sub DeclareOtherValuesAgain()
         '---APBEngine.ini---
-        MinSmoothedFrameRateValue = Form1.APBEngine.GetString("Engine.GameEngine", "MinSmoothedFrameRate", "(none)")
-        MaxSmoothedFrameRateValue = Form1.APBEngine.GetString("Engine.GameEngine", "MaxSmoothedFrameRate", "(none)")
-        MinDesiredFrameRateValue = Form1.APBEngine.GetString("Engine.Client", "MinDesiredFrameRate", "(none)")
+        MinSmoothedFrameRateValue = Form1.BaseEngine.GetString("Engine.GameEngine", "MinSmoothedFrameRate", "(none)")
+        MaxSmoothedFrameRateValue = Form1.BaseEngine.GetString("Engine.GameEngine", "MaxSmoothedFrameRate", "(none)")
+        MinDesiredFrameRateValue = Form1.BaseEngine.GetString("Engine.Client", "MinDesiredFrameRate", "(none)")
         '!-!'!-!'Experimental'!-!'!-!'
-        MaxDynamicChunkCountValue = Form1.APBEngine.GetString("Engine.PhysicsLODVerticalDestructible", "MaxDynamicChunkCount", "(none)")
-        DebrisLifetimeValue = Form1.APBEngine.GetString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "(none)")
-        ParticlePercentageValue = Form1.APBEngine.GetString("Engine.PhysicsLODVerticalEmitter", "ParticlePercentage", "(none)")
+        MaxDynamicChunkCountValue = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "MaxDynamicChunkCount", "(none)")
+        DebrisLifetimeValue = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "(none)")
+        ParticlePercentageValue = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalEmitter", "ParticlePercentage", "(none)")
         '!-!'!-!'END Experimental'!-!'!-!'
     End Sub
 End Class

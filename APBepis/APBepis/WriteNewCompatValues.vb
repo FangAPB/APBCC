@@ -187,9 +187,9 @@
     Public Shared Sub WriteNewOtherValues()
         DeclareCompatVarialbes.DeclareOtherValuesAgain()
         '---APBEngine.ini---
-        Form1.APBEngine.WriteString("Engine.GameEngine", "MinSmoothedFrameRate", Form1.TextBoxMinSmoothedFrameRate.Text) '"65")
-        Form1.APBEngine.WriteString("Engine.GameEngine", "MaxSmoothedFrameRate", Form1.TextBoxMaxSmoothedFrameRate.Text) '"75")
-        Form1.APBEngine.WriteString("Engine.Client", "MinDesiredFrameRate", Form1.TextBoxMinDesiredFrameRate.Text) '"75")
+        Form1.BaseEngine.WriteString("Engine.GameEngine", "MinSmoothedFrameRate", Form1.TextBoxMinSmoothedFrameRate.Text) '"65")
+        Form1.BaseEngine.WriteString("Engine.GameEngine", "MaxSmoothedFrameRate", Form1.TextBoxMaxSmoothedFrameRate.Text) '"75")
+        Form1.BaseEngine.WriteString("Engine.Client", "MinDesiredFrameRate", Form1.TextBoxMinDesiredFrameRate.Text) '"75")
         '!-!'!-!'Experimental'!-!'!-!'
         'Form1.APBEngine.WriteString("Engine.PhysicsLODVerticalDestructible", "MaxDynamicChunkCount", "1000")
         'Form1.APBEngine.WriteString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "60.0")

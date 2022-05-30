@@ -5,8 +5,6 @@ Public Class Form1
     Public Shared APBCompat As New IniFile(APBCompatSourceFile)
     Public Shared BaseEngineSourceFile = APBInstallDir + "\Engine\Config\BaseEngine.ini"
     Public Shared BaseEngine As New IniFile(BaseEngineSourceFile)
-    Public Shared APBEngineSourceFile = APBInstallDir + "\APBGame\Config\APBEngine.ini"
-    Public Shared APBEngine As New IniFile(APBEngineSourceFile)
     Public Shared APBCompatSection = "AppCompatBucket1"
     Dim PrevSize As New Size()
     Dim PrevState = ""
