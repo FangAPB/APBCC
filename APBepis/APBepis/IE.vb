@@ -39,7 +39,7 @@ Public Class IE
 
                 For Each Line As String In File.ReadLines(APBCompatImportSourceFile)
                     Dim DeReconstructed = System.Text.RegularExpressions.Regex.Match(Line, "\[.*\]").ToString()
-                    Dim separators As Char() = New Char() {" "c, "."c}
+                    Dim separators As Char() = New Char() {"🐺"} '{" "c, "."c}
                     Dim subs As String() = DeReconstructed.Split(separators, StringSplitOptions.RemoveEmptyEntries)
 
                     For Each substring As String In subs
