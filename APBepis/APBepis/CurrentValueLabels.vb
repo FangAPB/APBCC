@@ -215,6 +215,7 @@
         Form1.LabelTEXCAT_ContactFairUsagePriorityCurrent2.Text = DeclareCompatVarialbes.TEXCAT_ContactFairUsagePriorityValue
         Form1.LabelTEXCAT_ContactDisableStreamingCurrent2.Text = DeclareCompatVarialbes.TEXCAT_ContactDisableStreamingValue
         SetOtherValueLabels()
+        SetAPBGameValueLabels()
     End Sub
     Public Shared Sub SetCurrentBucket1and2ValueLabels()
         DeclareCompatVarialbes.DeclareCompatVariablesAgainBucket1and2()
@@ -280,6 +281,7 @@
         Form1.LabelMaxFreeMemoryUsedByVBPoolCurrent2.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByVBPoolValue
         Form1.LabelMaxFreeMemoryUsedByIBPoolCurrent2.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByIBPoolValue
         SetOtherValueLabels()
+        SetAPBGameValueLabels()
     End Sub
     Public Shared Sub SetCurrentBucket3ValueLabels()
         DeclareCompatVarialbes.DeclareCompatVariablesAgainBucket3()
@@ -298,11 +300,18 @@
         Form1.LabelMaxFreeMemoryUsedByVBPoolCurrent2.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByVBPoolValue
         Form1.LabelMaxFreeMemoryUsedByIBPoolCurrent2.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByIBPoolValue
         SetOtherValueLabels()
+        SetAPBGameValueLabels()
     End Sub
     Public Shared Sub SetOtherValueLabels()
         DeclareCompatVarialbes.DeclareOtherValuesAgain()
         Form1.LabelMinSmoothedFrameRateCurrent2.Text = DeclareCompatVarialbes.MinSmoothedFrameRateValue
         Form1.LabelMaxSmoothedFrameRateCurrent2.Text = DeclareCompatVarialbes.MaxSmoothedFrameRateValue
         Form1.LabelMinDesiredFrameRateCurrent2.Text = DeclareCompatVarialbes.MinDesiredFrameRateValue
+    End Sub
+    Public Shared Sub SetAPBGameValueLabels()
+        DeclareCompatVarialbes.APBGameValuesAgain()
+        Form1.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.Text = DeclareCompatVarialbes.m_bHideEnvironmentStreamingOnStartupValue
+        Form1.Labelm_bHideCharacterStreamingOnStartupCurrent2.Text = DeclareCompatVarialbes.m_bHideCharacterStreamingOnStartupValue
+        Form1.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.Text = DeclareCompatVarialbes.m_bWaitForClosestBuildingLODOnlyValue
     End Sub
 End Class

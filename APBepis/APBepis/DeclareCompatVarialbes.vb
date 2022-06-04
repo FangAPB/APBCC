@@ -338,6 +338,10 @@
     Public Shared MinSmoothedFrameRateValue As String = Form1.BaseEngine.GetString("Engine.GameEngine", "MinSmoothedFrameRate", "(none)")
     Public Shared MaxSmoothedFrameRateValue As String = Form1.BaseEngine.GetString("Engine.GameEngine", "MaxSmoothedFrameRate", "(none)")
     Public Shared MinDesiredFrameRateValue As String = Form1.BaseEngine.GetString("Engine.Client", "MinDesiredFrameRate", "(none)")
+    '---APBGame.ini---
+    Public Shared m_bHideEnvironmentStreamingOnStartupValue As String = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideEnvironmentStreamingOnStartup", "(none)")
+    Public Shared m_bHideCharacterStreamingOnStartupValue As String = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideCharacterStreamingOnStartup", "(none)")
+    Public Shared m_bWaitForClosestBuildingLODOnlyValue As String = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bWaitForClosestBuildingLODOnly", "(none)")
     '!-!'!-!'Experimental'!-!'!-!'
     Public Shared MaxDynamicChunkCountValue As String = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "MaxDynamicChunkCount", "(none)")
     Public Shared DebrisLifetimeValue As String = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "(none)")
@@ -762,18 +766,28 @@ Form1.LabelnMaxMemoryCacheEntryCountCurrent2,
 Form1.TextBoxnMaxMemoryCacheEntryCount
 }
     Public Shared ControlConstraintsAlwaysActive As New List(Of Control) From {
-    Form1.LabelMinSmoothedFrameRate,
-    Form1.LabelMinSmoothedFrameRateCurrent1,
-    Form1.LabelMinSmoothedFrameRateCurrent2,
-    Form1.TextBoxMinSmoothedFrameRate,
-    Form1.LabelMaxSmoothedFrameRate,
-    Form1.LabelMaxSmoothedFrameRateCurrent1,
-    Form1.LabelMaxSmoothedFrameRateCurrent2,
-    Form1.TextBoxMaxSmoothedFrameRate,
-    Form1.LabelMinDesiredFrameRate,
-    Form1.LabelMinDesiredFrameRateCurrent1,
-    Form1.LabelMinDesiredFrameRateCurrent2,
-    Form1.TextBoxMinDesiredFrameRate
+Form1.LabelMinSmoothedFrameRate,
+Form1.LabelMinSmoothedFrameRateCurrent1,
+Form1.LabelMinSmoothedFrameRateCurrent2,
+Form1.TextBoxMinSmoothedFrameRate,
+Form1.LabelMaxSmoothedFrameRate,
+Form1.LabelMaxSmoothedFrameRateCurrent1,
+Form1.LabelMaxSmoothedFrameRateCurrent2,
+Form1.TextBoxMaxSmoothedFrameRate,
+Form1.LabelMinDesiredFrameRate,
+Form1.LabelMinDesiredFrameRateCurrent1,
+Form1.LabelMinDesiredFrameRateCurrent2,
+Form1.TextBoxMinDesiredFrameRate,
+Form1.CheckBoxm_bHideEnvironmentStreamingOnStartup,
+Form1.Labelm_bHideEnvironmentStreamingOnStartupCurrent1,
+Form1.Labelm_bHideEnvironmentStreamingOnStartupCurrent2,
+Form1.CheckBoxm_bHideCharacterStreamingOnStartup,
+Form1.Labelm_bHideCharacterStreamingOnStartupCurrent1,
+Form1.Labelm_bHideCharacterStreamingOnStartupCurrent2,
+Form1.CheckBoxm_bWaitForClosestBuildingLODOnly,
+Form1.Labelm_bWaitForClosestBuildingLODOnlyCurrent1,
+Form1.Labelm_bWaitForClosestBuildingLODOnlyCurrent2,
+Form1.ButtonDefaults
     }
     Public Shared Sub DeclareCompatVariablesAgain()
         StaticDecalsValue = Form1.APBCompat.GetString(Form1.APBCompatSection, "StaticDecals", "(none)")
@@ -1236,5 +1250,10 @@ Form1.TextBoxnMaxMemoryCacheEntryCount
         DebrisLifetimeValue = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "(none)")
         ParticlePercentageValue = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalEmitter", "ParticlePercentage", "(none)")
         '!-!'!-!'END Experimental'!-!'!-!'
+    End Sub
+    Public Shared Sub APBGameValuesAgain()
+        m_bHideEnvironmentStreamingOnStartupValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideEnvironmentStreamingOnStartup", "(none)")
+        m_bHideCharacterStreamingOnStartupValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideCharacterStreamingOnStartup", "(none)")
+        m_bWaitForClosestBuildingLODOnlyValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bWaitForClosestBuildingLODOnly", "(none)")
     End Sub
 End Class

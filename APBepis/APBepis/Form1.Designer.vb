@@ -792,6 +792,16 @@ Partial Class Form1
         Me.LabelNoPersist = New System.Windows.Forms.Label()
         Me.ButtonImport = New System.Windows.Forms.Button()
         Me.ButtonExport = New System.Windows.Forms.Button()
+        Me.CheckBoxm_bHideEnvironmentStreamingOnStartup = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxm_bHideCharacterStreamingOnStartup = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxm_bWaitForClosestBuildingLODOnly = New System.Windows.Forms.CheckBox()
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1 = New System.Windows.Forms.Label()
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2 = New System.Windows.Forms.Label()
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent1 = New System.Windows.Forms.Label()
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent2 = New System.Windows.Forms.Label()
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1 = New System.Windows.Forms.Label()
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2 = New System.Windows.Forms.Label()
+        Me.ButtonDefaults = New System.Windows.Forms.Button()
         Me.SuspendLayout
         '
         'APBDirectoryFolderBrowserDialog
@@ -7796,7 +7806,7 @@ Partial Class Form1
         'LabelNoPersist
         '
         Me.LabelNoPersist.AutoSize = True
-        Me.LabelNoPersist.Location = New System.Drawing.Point(705, 0)
+        Me.LabelNoPersist.Location = New System.Drawing.Point(780, 0)
         Me.LabelNoPersist.Name = "LabelNoPersist"
         Me.LabelNoPersist.Size = New System.Drawing.Size(352, 13)
         Me.LabelNoPersist.TabIndex = 0
@@ -7807,7 +7817,8 @@ Partial Class Form1
         Me.ButtonImport.Location = New System.Drawing.Point(541, 8)
         Me.ButtonImport.Name = "ButtonImport"
         Me.ButtonImport.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonImport.TabIndex = 228
+        Me.ButtonImport.TabIndex = 0
+        Me.ButtonImport.TabStop = False
         Me.ButtonImport.Text = "Import"
         Me.ButtonImport.UseVisualStyleBackColor = True
         '
@@ -7816,15 +7827,123 @@ Partial Class Form1
         Me.ButtonExport.Location = New System.Drawing.Point(622, 8)
         Me.ButtonExport.Name = "ButtonExport"
         Me.ButtonExport.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonExport.TabIndex = 229
+        Me.ButtonExport.TabIndex = 0
+        Me.ButtonExport.TabStop = False
         Me.ButtonExport.Text = "Export"
         Me.ButtonExport.UseVisualStyleBackColor = True
+        '
+        'CheckBoxm_bHideEnvironmentStreamingOnStartup
+        '
+        Me.CheckBoxm_bHideEnvironmentStreamingOnStartup.AutoSize = True
+        Me.CheckBoxm_bHideEnvironmentStreamingOnStartup.Location = New System.Drawing.Point(1271, 868)
+        Me.CheckBoxm_bHideEnvironmentStreamingOnStartup.Name = "CheckBoxm_bHideEnvironmentStreamingOnStartup"
+        Me.CheckBoxm_bHideEnvironmentStreamingOnStartup.Size = New System.Drawing.Size(222, 17)
+        Me.CheckBoxm_bHideEnvironmentStreamingOnStartup.TabIndex = 228
+        Me.CheckBoxm_bHideEnvironmentStreamingOnStartup.Text = "m_bHideEnvironmentStreamingOnStartup"
+        Me.CheckBoxm_bHideEnvironmentStreamingOnStartup.UseVisualStyleBackColor = True
+        '
+        'CheckBoxm_bHideCharacterStreamingOnStartup
+        '
+        Me.CheckBoxm_bHideCharacterStreamingOnStartup.AutoSize = True
+        Me.CheckBoxm_bHideCharacterStreamingOnStartup.Location = New System.Drawing.Point(1271, 885)
+        Me.CheckBoxm_bHideCharacterStreamingOnStartup.Name = "CheckBoxm_bHideCharacterStreamingOnStartup"
+        Me.CheckBoxm_bHideCharacterStreamingOnStartup.Size = New System.Drawing.Size(209, 17)
+        Me.CheckBoxm_bHideCharacterStreamingOnStartup.TabIndex = 229
+        Me.CheckBoxm_bHideCharacterStreamingOnStartup.Text = "m_bHideCharacterStreamingOnStartup"
+        Me.CheckBoxm_bHideCharacterStreamingOnStartup.UseVisualStyleBackColor = True
+        '
+        'CheckBoxm_bWaitForClosestBuildingLODOnly
+        '
+        Me.CheckBoxm_bWaitForClosestBuildingLODOnly.AutoSize = True
+        Me.CheckBoxm_bWaitForClosestBuildingLODOnly.Location = New System.Drawing.Point(1271, 902)
+        Me.CheckBoxm_bWaitForClosestBuildingLODOnly.Name = "CheckBoxm_bWaitForClosestBuildingLODOnly"
+        Me.CheckBoxm_bWaitForClosestBuildingLODOnly.Size = New System.Drawing.Size(197, 17)
+        Me.CheckBoxm_bWaitForClosestBuildingLODOnly.TabIndex = 230
+        Me.CheckBoxm_bWaitForClosestBuildingLODOnly.Text = "m_bWaitForClosestBuildingLODOnly"
+        Me.CheckBoxm_bWaitForClosestBuildingLODOnly.UseVisualStyleBackColor = True
+        '
+        'Labelm_bHideEnvironmentStreamingOnStartupCurrent1
+        '
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1.AutoSize = True
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1.ForeColor = System.Drawing.Color.DarkBlue
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1.Location = New System.Drawing.Point(1489, 869)
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1.Name = "Labelm_bHideEnvironmentStreamingOnStartupCurrent1"
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1.Size = New System.Drawing.Size(44, 13)
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1.TabIndex = 0
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1.Text = "Current:"
+        '
+        'Labelm_bHideEnvironmentStreamingOnStartupCurrent2
+        '
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.AutoSize = True
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.Location = New System.Drawing.Point(1529, 869)
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.Name = "Labelm_bHideEnvironmentStreamingOnStartupCurrent2"
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.Size = New System.Drawing.Size(63, 13)
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.TabIndex = 0
+        Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.Text = "Placeholder"
+        '
+        'Labelm_bHideCharacterStreamingOnStartupCurrent1
+        '
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent1.AutoSize = True
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent1.ForeColor = System.Drawing.Color.DarkBlue
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent1.Location = New System.Drawing.Point(1476, 886)
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent1.Name = "Labelm_bHideCharacterStreamingOnStartupCurrent1"
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent1.Size = New System.Drawing.Size(44, 13)
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent1.TabIndex = 0
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent1.Text = "Current:"
+        '
+        'Labelm_bHideCharacterStreamingOnStartupCurrent2
+        '
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent2.AutoSize = True
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent2.Location = New System.Drawing.Point(1516, 886)
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent2.Name = "Labelm_bHideCharacterStreamingOnStartupCurrent2"
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent2.Size = New System.Drawing.Size(63, 13)
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent2.TabIndex = 0
+        Me.Labelm_bHideCharacterStreamingOnStartupCurrent2.Text = "Placeholder"
+        '
+        'Labelm_bWaitForClosestBuildingLODOnlyCurrent1
+        '
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1.AutoSize = True
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1.ForeColor = System.Drawing.Color.DarkBlue
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1.Location = New System.Drawing.Point(1464, 903)
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1.Name = "Labelm_bWaitForClosestBuildingLODOnlyCurrent1"
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1.Size = New System.Drawing.Size(44, 13)
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1.TabIndex = 0
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1.Text = "Current:"
+        '
+        'Labelm_bWaitForClosestBuildingLODOnlyCurrent2
+        '
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.AutoSize = True
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.Location = New System.Drawing.Point(1504, 903)
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.Name = "Labelm_bWaitForClosestBuildingLODOnlyCurrent2"
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.Size = New System.Drawing.Size(63, 13)
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.TabIndex = 0
+        Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.Text = "Placeholder"
+        '
+        'ButtonDefaults
+        '
+        Me.ButtonDefaults.Location = New System.Drawing.Point(703, 8)
+        Me.ButtonDefaults.Name = "ButtonDefaults"
+        Me.ButtonDefaults.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDefaults.TabIndex = 0
+        Me.ButtonDefaults.TabStop = False
+        Me.ButtonDefaults.Text = "Set Defaults"
+        Me.ButtonDefaults.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1686, 923)
+        Me.ClientSize = New System.Drawing.Size(1702, 955)
+        Me.Controls.Add(Me.ButtonDefaults)
+        Me.Controls.Add(Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2)
+        Me.Controls.Add(Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1)
+        Me.Controls.Add(Me.Labelm_bHideCharacterStreamingOnStartupCurrent2)
+        Me.Controls.Add(Me.Labelm_bHideCharacterStreamingOnStartupCurrent1)
+        Me.Controls.Add(Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2)
+        Me.Controls.Add(Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1)
+        Me.Controls.Add(Me.CheckBoxm_bWaitForClosestBuildingLODOnly)
+        Me.Controls.Add(Me.CheckBoxm_bHideCharacterStreamingOnStartup)
+        Me.Controls.Add(Me.CheckBoxm_bHideEnvironmentStreamingOnStartup)
         Me.Controls.Add(Me.ButtonExport)
         Me.Controls.Add(Me.ButtonImport)
         Me.Controls.Add(Me.LabelNoPersist)
@@ -9375,4 +9494,14 @@ Partial Class Form1
     Friend WithEvents LabelNoPersist As Label
     Friend WithEvents ButtonImport As Button
     Friend WithEvents ButtonExport As Button
+    Friend WithEvents CheckBoxm_bHideEnvironmentStreamingOnStartup As CheckBox
+    Friend WithEvents CheckBoxm_bHideCharacterStreamingOnStartup As CheckBox
+    Friend WithEvents CheckBoxm_bWaitForClosestBuildingLODOnly As CheckBox
+    Friend WithEvents Labelm_bHideEnvironmentStreamingOnStartupCurrent1 As Label
+    Friend WithEvents Labelm_bHideEnvironmentStreamingOnStartupCurrent2 As Label
+    Friend WithEvents Labelm_bHideCharacterStreamingOnStartupCurrent1 As Label
+    Friend WithEvents Labelm_bHideCharacterStreamingOnStartupCurrent2 As Label
+    Friend WithEvents Labelm_bWaitForClosestBuildingLODOnlyCurrent1 As Label
+    Friend WithEvents Labelm_bWaitForClosestBuildingLODOnlyCurrent2 As Label
+    Friend WithEvents ButtonDefaults As Button
 End Class

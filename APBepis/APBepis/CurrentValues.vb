@@ -215,6 +215,7 @@
         Form1.TextBoxTEXCAT_ContactFairUsagePriority.Text = DeclareCompatVarialbes.TEXCAT_ContactFairUsagePriorityValue
         Form1.CheckBoxTEXCAT_ContactDisableStreaming.Checked = DeclareCompatVarialbes.TEXCAT_ContactDisableStreamingValue
         LoadOtherValuesToControls()
+        LoadAPBGameValuesToControls()
     End Sub
     Public Shared Sub LoadCurrentBucket1and2ValuesToControls()
         DeclareCompatVarialbes.DeclareCompatVariablesAgainBucket1and2()
@@ -280,6 +281,7 @@
         Form1.TextBoxMaxFreeMemoryUsedByVBPool.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByVBPoolValue
         Form1.TextBoxMaxFreeMemoryUsedByIBPool.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByIBPoolValue
         LoadOtherValuesToControls()
+        LoadAPBGameValuesToControls()
     End Sub
     Public Shared Sub LoadCurrentBucket3ValuesToControls()
         DeclareCompatVarialbes.DeclareCompatVariablesAgainBucket3()
@@ -298,11 +300,18 @@
         Form1.TextBoxMaxFreeMemoryUsedByVBPool.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByVBPoolValue
         Form1.TextBoxMaxFreeMemoryUsedByIBPool.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByIBPoolValue
         LoadOtherValuesToControls()
+        LoadAPBGameValuesToControls()
     End Sub
     Public Shared Sub LoadOtherValuesToControls()
         DeclareCompatVarialbes.DeclareOtherValuesAgain()
         Form1.TextBoxMinSmoothedFrameRate.Text = DeclareCompatVarialbes.MinSmoothedFrameRateValue
         Form1.TextBoxMaxSmoothedFrameRate.Text = DeclareCompatVarialbes.MaxSmoothedFrameRateValue
         Form1.TextBoxMinDesiredFrameRate.Text = DeclareCompatVarialbes.MinDesiredFrameRateValue
+    End Sub
+    Public Shared Sub LoadAPBGameValuesToControls()
+        DeclareCompatVarialbes.APBGameValuesAgain()
+        Form1.CheckBoxm_bHideEnvironmentStreamingOnStartup.Checked = DeclareCompatVarialbes.m_bHideEnvironmentStreamingOnStartupValue
+        Form1.CheckBoxm_bHideCharacterStreamingOnStartup.Checked = DeclareCompatVarialbes.m_bHideCharacterStreamingOnStartupValue
+        Form1.CheckBoxm_bWaitForClosestBuildingLODOnly.Checked = DeclareCompatVarialbes.m_bWaitForClosestBuildingLODOnlyValue
     End Sub
 End Class

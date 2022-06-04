@@ -1,10 +1,13 @@
-﻿Imports System.IO
+﻿'Imports System.ComponentModel
+Imports System.IO
 Public Class Form1
     Public Shared APBInstallDir = My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\APBCompatConfigurator", "APBInstallDirectory", Nothing)
     Public Shared APBCompatSourceFile = APBInstallDir + "\APBGame\Config\APBCompat.ini"
     Public Shared APBCompat As New IniFile(APBCompatSourceFile)
     Public Shared BaseEngineSourceFile = APBInstallDir + "\Engine\Config\BaseEngine.ini"
     Public Shared BaseEngine As New IniFile(BaseEngineSourceFile)
+    Public Shared APBGameSourceFile = APBInstallDir + "\APBGame\Config\APBGame.ini"
+    Public Shared APBGame As New IniFile(APBGameSourceFile)
     Public Shared APBCompatSection = "AppCompatBucket1"
     Dim PrevSize As New Size()
     Dim PrevState = ""
@@ -44,6 +47,9 @@ Public Class Form1
         'Me.MinimumSize = New Size(654, 397)
         ButtonImport.BackgroundImage = My.Resources.ResourceManager.GetObject("ImportButton") 'Image.FromFile("C:\Users\Administrator\Desktop\ImportButton.tiff")
         ButtonExport.BackgroundImage = My.Resources.ResourceManager.GetObject("ExportButton") 'Image.FromFile("C:\Users\Administrator\Desktop\ExportButton.tiff")
+        TextBoxValuesMatch()
+        ComboBoxValuesMatch()
+        CheckBoxValuesMatch()
     End Sub
     Private Sub Form1_Scroll(sender As Object, e As ScrollEventArgs) Handles MyBase.Scroll
         Me.Refresh()
@@ -141,6 +147,75 @@ Public Class Form1
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
         Me.Enabled = False
         IE.ExportCompatValues()
+    End Sub
+    Private Sub ButtonDefaults_Click(sender As Object, e As EventArgs) Handles ButtonDefaults.Click
+        Select Case (ComboBoxAPBCompatSection.SelectedItem)
+            Case "AppCompatBucket1"
+                WriteNewCompatValues.SetAppCompatBucket1Defaults()
+                FixScuff()
+                CurrentValueLabels.SetCurrentValueLabels()
+                CurrentValues.LoadCurrentValuesToControls()
+                TextBoxValuesMatch()
+                ComboBoxValuesMatch()
+                CheckBoxValuesMatch()
+            Case "AppCompatBucket2"
+                WriteNewCompatValues.SetAppCompatBucket2Defaults()
+                FixScuff()
+                CurrentValueLabels.SetCurrentValueLabels()
+                CurrentValues.LoadCurrentValuesToControls()
+                TextBoxValuesMatch()
+                ComboBoxValuesMatch()
+                CheckBoxValuesMatch()
+            Case "AppCompatBucket3"
+                WriteNewCompatValues.SetAppCompatBucket3Defaults()
+                FixScuff()
+                CurrentValueLabels.SetCurrentValueLabels()
+                CurrentValues.LoadCurrentValuesToControls()
+                TextBoxValuesMatch()
+                ComboBoxValuesMatch()
+                CheckBoxValuesMatch()
+            Case "AppCompatBucket4"
+                WriteNewCompatValues.SetAppCompatBucket4Defaults()
+                FixScuff()
+                CurrentValueLabels.SetCurrentValueLabels()
+                CurrentValues.LoadCurrentValuesToControls()
+                TextBoxValuesMatch()
+                ComboBoxValuesMatch()
+                CheckBoxValuesMatch()
+            Case "AppCompatBucket5"
+                WriteNewCompatValues.SetAppCompatBucket5Defaults()
+                FixScuff()
+                CurrentValueLabels.SetCurrentValueLabels()
+                CurrentValues.LoadCurrentValuesToControls()
+                TextBoxValuesMatch()
+                ComboBoxValuesMatch()
+                CheckBoxValuesMatch()
+            Case "AppHWConstraintsBucket1"
+                WriteNewCompatValues.SetAppHWConstraintsBucket1Defaults()
+                FixScuff()
+                CurrentValueLabels.SetCurrentBucket1and2ValueLabels()
+                CurrentValues.LoadCurrentBucket1and2ValuesToControls()
+                TextBoxValuesMatch()
+                ComboBoxValuesMatch()
+                CheckBoxValuesMatch()
+            Case "AppHWConstraintsBucket2"
+                WriteNewCompatValues.SetAppHWConstraintsBucket2Defaults()
+                FixScuff()
+                CurrentValueLabels.SetCurrentBucket1and2ValueLabels()
+                CurrentValues.LoadCurrentBucket1and2ValuesToControls()
+                TextBoxValuesMatch()
+                ComboBoxValuesMatch()
+                CheckBoxValuesMatch()
+            Case "AppHWConstraintsBucket3"
+                WriteNewCompatValues.SetAppHWConstraintsBucket3Defaults()
+                FixScuff()
+                CurrentValueLabels.SetCurrentBucket3ValueLabels()
+                CurrentValues.LoadCurrentBucket3ValuesToControls()
+                TextBoxValuesMatch()
+                ComboBoxValuesMatch()
+                CheckBoxValuesMatch()
+            Case Else
+        End Select
     End Sub
     Private Sub ComboBoxAPBCompatSection_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxAPBCompatSection.SelectedValueChanged
         Select Case (ComboBoxAPBCompatSection.SelectedItem)
@@ -320,6 +395,10 @@ Public Class Form1
         My.Computer.FileSystem.WriteAllText(Form1.APBCompatSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBCompatSourceFile).Replace("true", "True"), False, System.Text.Encoding.ASCII)
         My.Computer.FileSystem.WriteAllText(Form1.APBCompatSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBCompatSourceFile).Replace("FALSE", "False"), False, System.Text.Encoding.ASCII)
         My.Computer.FileSystem.WriteAllText(Form1.APBCompatSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBCompatSourceFile).Replace("false", "False"), False, System.Text.Encoding.ASCII)
+        My.Computer.FileSystem.WriteAllText(Form1.APBGameSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBGameSourceFile).Replace("TRUE", "True"), False, System.Text.Encoding.ASCII)
+        My.Computer.FileSystem.WriteAllText(Form1.APBGameSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBGameSourceFile).Replace("true", "True"), False, System.Text.Encoding.ASCII)
+        My.Computer.FileSystem.WriteAllText(Form1.APBGameSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBGameSourceFile).Replace("FALSE", "False"), False, System.Text.Encoding.ASCII)
+        My.Computer.FileSystem.WriteAllText(Form1.APBGameSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBGameSourceFile).Replace("false", "False"), False, System.Text.Encoding.ASCII)
         For Each Line In APBCompatSourceFile
             Dim Lines As List(Of String) = System.IO.File.ReadAllLines(APBCompatSourceFile).ToList
             Lines.Remove(" ")
@@ -453,5 +532,9 @@ Public Class Form1
                 End If
             Next
         Next
+    End Sub
+
+    Private Sub Form1_Closing(sender As Object, e As EventArgs) Handles Me.Closing
+        Dispose()
     End Sub
 End Class
