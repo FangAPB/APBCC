@@ -27,8 +27,8 @@
     <PublisherName>Fang</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <DisallowUrlActivation>true</DisallowUrlActivation>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.0.3</ApplicationVersion>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.4</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <ExcludeDeploymentUrl>true</ExcludeDeploymentUrl>
     <BootstrapperEnabled>true</BootstrapperEnabled>

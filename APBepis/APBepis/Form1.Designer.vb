@@ -802,6 +802,12 @@ Partial Class Form1
         Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent1 = New System.Windows.Forms.Label()
         Me.Labelm_bWaitForClosestBuildingLODOnlyCurrent2 = New System.Windows.Forms.Label()
         Me.ButtonDefaults = New System.Windows.Forms.Button()
+        Me.CheckBoxAlwaysSprint = New System.Windows.Forms.CheckBox()
+        Me.LabelAlwaysSprintCurrent1 = New System.Windows.Forms.Label()
+        Me.LabelAlwaysSprintCurrent2 = New System.Windows.Forms.Label()
+        Me.CheckBoxHoldCrouch = New System.Windows.Forms.CheckBox()
+        Me.LabelHoldCrouchCurrent1 = New System.Windows.Forms.Label()
+        Me.LabelHoldCrouchCurrent2 = New System.Windows.Forms.Label()
         Me.SuspendLayout
         '
         'APBDirectoryFolderBrowserDialog
@@ -7929,11 +7935,100 @@ Partial Class Form1
         Me.ButtonDefaults.Text = "Set Defaults"
         Me.ButtonDefaults.UseVisualStyleBackColor = True
         '
+        'CheckBoxAlwaysSprint
+        '
+        Me.CheckBoxAlwaysSprint.AutoSize = True
+        Me.CheckBoxAlwaysSprint.Location = New System.Drawing.Point(1271, 918)
+        Me.CheckBoxAlwaysSprint.Name = "CheckBoxAlwaysSprint"
+        Me.CheckBoxAlwaysSprint.Size = New System.Drawing.Size(89, 17)
+        Me.CheckBoxAlwaysSprint.TabIndex = 231
+        Me.CheckBoxAlwaysSprint.Text = "Always Sprint"
+        Me.CheckBoxAlwaysSprint.UseVisualStyleBackColor = True
+        '
+        'LabelAlwaysSprintCurrent1
+        '
+        Me.LabelAlwaysSprintCurrent1.AutoSize = True
+        Me.LabelAlwaysSprintCurrent1.Location = New System.Drawing.Point(1366, 919)
+        Me.LabelAlwaysSprintCurrent1.Name = "LabelAlwaysSprintCurrent1"
+        Me.LabelAlwaysSprintCurrent1.Size = New System.Drawing.Size(44, 13)
+        Me.LabelAlwaysSprintCurrent1.TabIndex = 0
+        Me.LabelAlwaysSprintCurrent1.Text = "Current:"
+        '
+        'LabelAlwaysSprintCurrent2
+        '
+        Me.LabelAlwaysSprintCurrent2.AutoSize = True
+        Me.LabelAlwaysSprintCurrent2.Location = New System.Drawing.Point(1416, 919)
+        Me.LabelAlwaysSprintCurrent2.Name = "LabelAlwaysSprintCurrent2"
+        Me.LabelAlwaysSprintCurrent2.Size = New System.Drawing.Size(27, 13)
+        Me.LabelAlwaysSprintCurrent2.TabIndex = 0
+        Me.LabelAlwaysSprintCurrent2.Text = "OFF"
+        '
+        'CheckBoxAlwaysSprint
+        '
+        Me.CheckBoxAlwaysSprint.AutoSize = True
+        Me.CheckBoxAlwaysSprint.Location = New System.Drawing.Point(1271, 918)
+        Me.CheckBoxAlwaysSprint.Name = "CheckBoxAlwaysSprint"
+        Me.CheckBoxAlwaysSprint.Size = New System.Drawing.Size(89, 17)
+        Me.CheckBoxAlwaysSprint.TabIndex = 231
+        Me.CheckBoxAlwaysSprint.Text = "Always Sprint"
+        Me.CheckBoxAlwaysSprint.UseVisualStyleBackColor = True
+        '
+        'LabelAlwaysSprintCurrent1
+        '
+        Me.LabelAlwaysSprintCurrent1.AutoSize = True
+        Me.LabelAlwaysSprintCurrent1.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LabelAlwaysSprintCurrent1.Location = New System.Drawing.Point(1356, 919)
+        Me.LabelAlwaysSprintCurrent1.Name = "LabelAlwaysSprintCurrent1"
+        Me.LabelAlwaysSprintCurrent1.Size = New System.Drawing.Size(44, 13)
+        Me.LabelAlwaysSprintCurrent1.TabIndex = 0
+        Me.LabelAlwaysSprintCurrent1.Text = "Current:"
+        '
+        'LabelAlwaysSprintCurrent2
+        '
+        Me.LabelAlwaysSprintCurrent2.AutoSize = True
+        Me.LabelAlwaysSprintCurrent2.Location = New System.Drawing.Point(1396, 919)
+        Me.LabelAlwaysSprintCurrent2.Name = "LabelAlwaysSprintCurrent2"
+        Me.LabelAlwaysSprintCurrent2.Size = New System.Drawing.Size(27, 13)
+        Me.LabelAlwaysSprintCurrent2.TabIndex = 0
+        Me.LabelAlwaysSprintCurrent2.Text = "OFF"
+        '
+        'CheckBoxHoldCrouch
+        '
+        Me.CheckBoxHoldCrouch.AutoSize = True
+        Me.CheckBoxHoldCrouch.Location = New System.Drawing.Point(1271, 935)
+        Me.CheckBoxHoldCrouch.Name = "CheckBoxHoldCrouch"
+        Me.CheckBoxHoldCrouch.Size = New System.Drawing.Size(85, 17)
+        Me.CheckBoxHoldCrouch.TabIndex = 232
+        Me.CheckBoxHoldCrouch.Text = "Hold Crouch"
+        Me.CheckBoxHoldCrouch.UseVisualStyleBackColor = True
+        '
+        'LabelHoldCrouchCurrent1
+        '
+        Me.LabelHoldCrouchCurrent1.AutoSize = True
+        Me.LabelHoldCrouchCurrent1.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LabelHoldCrouchCurrent1.Location = New System.Drawing.Point(1352, 936)
+        Me.LabelHoldCrouchCurrent1.Name = "LabelHoldCrouchCurrent1"
+        Me.LabelHoldCrouchCurrent1.Size = New System.Drawing.Size(44, 13)
+        Me.LabelHoldCrouchCurrent1.TabIndex = 0
+        Me.LabelHoldCrouchCurrent1.Text = "Current:"
+        '
+        'LabelHoldCrouchCurrent2
+        '
+        Me.LabelHoldCrouchCurrent2.AutoSize = True
+        Me.LabelHoldCrouchCurrent2.Location = New System.Drawing.Point(1392, 936)
+        Me.LabelHoldCrouchCurrent2.Name = "LabelHoldCrouchCurrent2"
+        Me.LabelHoldCrouchCurrent2.Size = New System.Drawing.Size(27, 13)
+        Me.LabelHoldCrouchCurrent2.TabIndex = 0
+        Me.LabelHoldCrouchCurrent2.Text = "OFF"
+        '
         'Form1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1702, 955)
+        Me.Controls.Add(Me.LabelAlwaysSprintCurrent2)
+        Me.Controls.Add(Me.LabelAlwaysSprintCurrent1)
+        Me.Controls.Add(Me.CheckBoxAlwaysSprint)
         Me.Controls.Add(Me.ButtonDefaults)
         Me.Controls.Add(Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent2)
         Me.Controls.Add(Me.Labelm_bHideEnvironmentStreamingOnStartupCurrent1)
@@ -8713,6 +8808,9 @@ Partial Class Form1
         Me.Controls.Add(Me.CheckBoxLevelParticles)
         Me.Controls.Add(Me.CheckBoxDynamicDecals)
         Me.Controls.Add(Me.CheckBoxStaticDecals)
+        Me.Controls.Add(Me.CheckBoxHoldCrouch)
+        Me.Controls.Add(Me.LabelHoldCrouchCurrent2)
+        Me.Controls.Add(Me.LabelHoldCrouchCurrent1)
         Me.Location = New System.Drawing.Point(-7, -7)
         Me.MinimumSize = New System.Drawing.Size(963, 397)
         Me.Name = "Form1"
@@ -9504,4 +9602,10 @@ Partial Class Form1
     Friend WithEvents Labelm_bWaitForClosestBuildingLODOnlyCurrent1 As Label
     Friend WithEvents Labelm_bWaitForClosestBuildingLODOnlyCurrent2 As Label
     Friend WithEvents ButtonDefaults As Button
+    Friend WithEvents CheckBoxAlwaysSprint As CheckBox
+    Friend WithEvents LabelAlwaysSprintCurrent1 As Label
+    Friend WithEvents LabelAlwaysSprintCurrent2 As Label
+    Friend WithEvents CheckBoxHoldCrouch As CheckBox
+    Friend WithEvents LabelHoldCrouchCurrent1 As Label
+    Friend WithEvents LabelHoldCrouchCurrent2 As Label
 End Class

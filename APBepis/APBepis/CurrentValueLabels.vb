@@ -216,6 +216,7 @@
         Form1.LabelTEXCAT_ContactDisableStreamingCurrent2.Text = DeclareCompatVarialbes.TEXCAT_ContactDisableStreamingValue
         SetOtherValueLabels()
         SetAPBGameValueLabels()
+        SetInputValueLabels()
     End Sub
     Public Shared Sub SetCurrentBucket1and2ValueLabels()
         DeclareCompatVarialbes.DeclareCompatVariablesAgainBucket1and2()
@@ -282,6 +283,7 @@
         Form1.LabelMaxFreeMemoryUsedByIBPoolCurrent2.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByIBPoolValue
         SetOtherValueLabels()
         SetAPBGameValueLabels()
+        SetInputValueLabels()
     End Sub
     Public Shared Sub SetCurrentBucket3ValueLabels()
         DeclareCompatVarialbes.DeclareCompatVariablesAgainBucket3()
@@ -301,6 +303,7 @@
         Form1.LabelMaxFreeMemoryUsedByIBPoolCurrent2.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByIBPoolValue
         SetOtherValueLabels()
         SetAPBGameValueLabels()
+        SetInputValueLabels()
     End Sub
     Public Shared Sub SetOtherValueLabels()
         DeclareCompatVarialbes.DeclareOtherValuesAgain()
@@ -310,8 +313,29 @@
     End Sub
     Public Shared Sub SetAPBGameValueLabels()
         DeclareCompatVarialbes.APBGameValuesAgain()
-        Form1.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.Text = DeclareCompatVarialbes.m_bHideEnvironmentStreamingOnStartupValue
-        Form1.Labelm_bHideCharacterStreamingOnStartupCurrent2.Text = DeclareCompatVarialbes.m_bHideCharacterStreamingOnStartupValue
-        Form1.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.Text = DeclareCompatVarialbes.m_bWaitForClosestBuildingLODOnlyValue
+        If My.Computer.FileSystem.FileExists(Form1.APBGameSourceFile) Then
+            Form1.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.Text = DeclareCompatVarialbes.m_bHideEnvironmentStreamingOnStartupValue
+            Form1.Labelm_bHideCharacterStreamingOnStartupCurrent2.Text = DeclareCompatVarialbes.m_bHideCharacterStreamingOnStartupValue
+            Form1.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.Text = DeclareCompatVarialbes.m_bWaitForClosestBuildingLODOnlyValue
+            Else End If
+    End Sub
+    Public Shared Sub SetInputValueLabels()
+        DeclareCompatVarialbes.APBInputValuesAgain()
+        If My.Computer.FileSystem.FileExists(Form1.APBInputSourceFile) Then
+            Select Case DeclareCompatVarialbes.AlwaysSprintValue
+                Case """InputSprinting | OnRelease InputStopSprinting"")"
+                    Form1.LabelAlwaysSprintCurrent2.Text = "OFF"
+                Case """InputStopSprinting | OnRelease InputSprinting"")"
+                    Form1.LabelAlwaysSprintCurrent2.Text = "ON"
+                Case ""
+            End Select
+            Select Case DeclareCompatVarialbes.HoldCrouchValue
+                Case """Button m_bDuckButton | InputToggleDuck"")"
+                    Form1.LabelHoldCrouchCurrent2.Text = "OFF"
+                Case """Button m_bDuckButton | InputToggleDuck | OnRelease InputToggleDuck"")"
+                    Form1.LabelHoldCrouchCurrent2.Text = "ON"
+                Case ""
+            End Select
+        Else End If
     End Sub
 End Class

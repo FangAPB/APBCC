@@ -342,6 +342,9 @@
     Public Shared m_bHideEnvironmentStreamingOnStartupValue As String = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideEnvironmentStreamingOnStartup", "(none)")
     Public Shared m_bHideCharacterStreamingOnStartupValue As String = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideCharacterStreamingOnStartup", "(none)")
     Public Shared m_bWaitForClosestBuildingLODOnlyValue As String = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bWaitForClosestBuildingLODOnly", "(none)")
+    '---APBInput.ini---
+    Public Shared AlwaysSprintValue As String = Form1.APBInput.GetString("Engine.PlayerInput", "BindingsNameSprintCommand", "(none)")
+    Public Shared HoldCrouchValue As String = Form1.APBInput.GetString("Engine.PlayerInput", "BindingsNameSprintCommand", "(none)")
     '!-!'!-!'Experimental'!-!'!-!'
     Public Shared MaxDynamicChunkCountValue As String = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "MaxDynamicChunkCount", "(none)")
     Public Shared DebrisLifetimeValue As String = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "(none)")
@@ -1252,8 +1255,32 @@ Form1.ButtonDefaults
         '!-!'!-!'END Experimental'!-!'!-!'
     End Sub
     Public Shared Sub APBGameValuesAgain()
-        m_bHideEnvironmentStreamingOnStartupValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideEnvironmentStreamingOnStartup", "(none)")
-        m_bHideCharacterStreamingOnStartupValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideCharacterStreamingOnStartup", "(none)")
-        m_bWaitForClosestBuildingLODOnlyValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bWaitForClosestBuildingLODOnly", "(none)")
+        If My.Computer.FileSystem.FileExists(Form1.APBGameSourceFile) Then
+            m_bHideEnvironmentStreamingOnStartupValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideEnvironmentStreamingOnStartup", "(none)")
+            m_bHideCharacterStreamingOnStartupValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideCharacterStreamingOnStartup", "(none)")
+            m_bWaitForClosestBuildingLODOnlyValue = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bWaitForClosestBuildingLODOnly", "(none)")
+        Else End If
+    End Sub
+    Public Shared Sub APBInputValuesAgain()
+        If My.Computer.FileSystem.FileExists(Form1.APBInputSourceFile) Then
+            RenameSprint()
+            AlwaysSprintValue = Form1.APBInput.GetString("Engine.PlayerInput", "BindingsNameSprintCommand", "(none)")
+            RestoreSprint()
+            RenameCrouch()
+            HoldCrouchValue = Form1.APBInput.GetString("Engine.PlayerInput", "BindingsNameDuckCommand", "(none)")
+            RestoreCrouch()
+        Else End If
+    End Sub
+    Public Shared Sub RenameSprint()
+        My.Computer.FileSystem.WriteAllText(Form1.APBInputSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBInputSourceFile).Replace("Bindings=(Name=""Sprint"",Command=", "BindingsNameSprintCommand="), False, System.Text.Encoding.ASCII)
+    End Sub
+    Public Shared Sub RestoreSprint()
+        My.Computer.FileSystem.WriteAllText(Form1.APBInputSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBInputSourceFile).Replace("BindingsNameSprintCommand=", "Bindings=(Name=""Sprint"",Command="), False, System.Text.Encoding.ASCII)
+    End Sub
+    Public Shared Sub RenameCrouch()
+        My.Computer.FileSystem.WriteAllText(Form1.APBInputSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBInputSourceFile).Replace("Bindings=(Name=""Duck"",Command=", "BindingsNameDuckCommand="), False, System.Text.Encoding.ASCII)
+    End Sub
+    Public Shared Sub RestoreCrouch()
+        My.Computer.FileSystem.WriteAllText(Form1.APBInputSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBInputSourceFile).Replace("BindingsNameDuckCommand=", "Bindings=(Name=""Duck"",Command="), False, System.Text.Encoding.ASCII)
     End Sub
 End Class

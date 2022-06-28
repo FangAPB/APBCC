@@ -128,6 +128,7 @@
         WriteTEXCAT_Contact()
         WriteNewOtherValues()
         WriteAPBGameValues()
+        WriteInputValues()
         Form1.FixScuff()
     End Sub
     Public Shared Sub WriteNewBucket1and2CompatValuesToCompat()
@@ -201,9 +202,37 @@
     End Sub
     Public Shared Sub WriteAPBGameValues()
         DeclareCompatVarialbes.APBGameValuesAgain()
-        Form1.APBGame.WriteString("APBGame.cAPBPlayerController", "m_bHideEnvironmentStreamingOnStartup", Form1.CheckBoxm_bHideEnvironmentStreamingOnStartup.Checked)
-        Form1.APBGame.WriteString("APBGame.cAPBPlayerController", "m_bHideCharacterStreamingOnStartup", Form1.CheckBoxm_bHideCharacterStreamingOnStartup.Checked)
-        Form1.APBGame.WriteString("APBGame.cAPBPlayerController", "m_bWaitForClosestBuildingLODOnly", Form1.CheckBoxm_bWaitForClosestBuildingLODOnly.Checked)
+        If My.Computer.FileSystem.FileExists(Form1.APBGameSourceFile) Then
+            Form1.APBGame.WriteString("APBGame.cAPBPlayerController", "m_bHideEnvironmentStreamingOnStartup", Form1.CheckBoxm_bHideEnvironmentStreamingOnStartup.Checked)
+            Form1.APBGame.WriteString("APBGame.cAPBPlayerController", "m_bHideCharacterStreamingOnStartup", Form1.CheckBoxm_bHideCharacterStreamingOnStartup.Checked)
+            Form1.APBGame.WriteString("APBGame.cAPBPlayerController", "m_bWaitForClosestBuildingLODOnly", Form1.CheckBoxm_bWaitForClosestBuildingLODOnly.Checked)
+        Else
+        End If
+    End Sub
+    Public Shared Sub WriteInputValues()
+        DeclareCompatVarialbes.APBInputValuesAgain()
+        If My.Computer.FileSystem.FileExists(Form1.APBInputSourceFile) Then
+            Select Case Form1.CheckBoxAlwaysSprint.Checked
+                Case True
+                    DeclareCompatVarialbes.RenameSprint()
+                    Form1.APBInput.WriteString("Engine.PlayerInput", "BindingsNameSprintCommand", """InputStopSprinting | OnRelease InputSprinting"")")
+                    DeclareCompatVarialbes.RestoreSprint()
+                Case False
+                    DeclareCompatVarialbes.RenameSprint()
+                    Form1.APBInput.WriteString("Engine.PlayerInput", "BindingsNameSprintCommand", """InputSprinting | OnRelease InputStopSprinting"")")
+                    DeclareCompatVarialbes.RestoreSprint()
+            End Select
+            Select Case Form1.CheckBoxHoldCrouch.Checked
+                Case True
+                    DeclareCompatVarialbes.RenameCrouch()
+                    Form1.APBInput.WriteString("Engine.PlayerInput", "BindingsNameDuckCommand", """Button m_bDuckButton | InputToggleDuck | OnRelease InputToggleDuck"")")
+                    DeclareCompatVarialbes.RestoreCrouch()
+                Case False
+                    DeclareCompatVarialbes.RenameCrouch()
+                    Form1.APBInput.WriteString("Engine.PlayerInput", "BindingsNameDuckCommand", """Button m_bDuckButton | InputToggleDuck"")")
+                    DeclareCompatVarialbes.RestoreCrouch()
+            End Select
+        Else End If
     End Sub
     Public Shared Sub RenameTEXCAT_Unknown()
         My.Computer.FileSystem.WriteAllText(Form1.APBCompatSourceFile, My.Computer.FileSystem.ReadAllText(Form1.APBCompatSourceFile).Replace("TEXCAT_Unknown=(Usage=1", "TEXCAT_Unknown1=(Usage=1"), False, System.Text.Encoding.ASCII)

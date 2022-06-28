@@ -58,7 +58,9 @@
         Next
     End Sub
     Public Shared Sub UnCommentSmoothFrameRates()
-        My.Computer.FileSystem.WriteAllText(Form1.BaseEngineSourceFile, My.Computer.FileSystem.ReadAllText(Form1.BaseEngineSourceFile).Replace(";MinSmoothedFrameRate", "MinSmoothedFrameRate"), False, System.Text.Encoding.ASCII)
-        My.Computer.FileSystem.WriteAllText(Form1.BaseEngineSourceFile, My.Computer.FileSystem.ReadAllText(Form1.BaseEngineSourceFile).Replace(";MaxSmoothedFrameRate", "MaxSmoothedFrameRate"), False, System.Text.Encoding.ASCII)
+        If My.Computer.FileSystem.FileExists(Form1.BaseEngineSourceFile) Then
+            My.Computer.FileSystem.WriteAllText(Form1.BaseEngineSourceFile, My.Computer.FileSystem.ReadAllText(Form1.BaseEngineSourceFile).Replace(";MinSmoothedFrameRate", "MinSmoothedFrameRate"), False, System.Text.Encoding.ASCII)
+            My.Computer.FileSystem.WriteAllText(Form1.BaseEngineSourceFile, My.Computer.FileSystem.ReadAllText(Form1.BaseEngineSourceFile).Replace(";MaxSmoothedFrameRate", "MaxSmoothedFrameRate"), False, System.Text.Encoding.ASCII)
+        Else End If
     End Sub
 End Class

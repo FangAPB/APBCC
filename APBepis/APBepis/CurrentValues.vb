@@ -216,6 +216,7 @@
         Form1.CheckBoxTEXCAT_ContactDisableStreaming.Checked = DeclareCompatVarialbes.TEXCAT_ContactDisableStreamingValue
         LoadOtherValuesToControls()
         LoadAPBGameValuesToControls()
+        LoadInputValuesToControls()
     End Sub
     Public Shared Sub LoadCurrentBucket1and2ValuesToControls()
         DeclareCompatVarialbes.DeclareCompatVariablesAgainBucket1and2()
@@ -282,6 +283,7 @@
         Form1.TextBoxMaxFreeMemoryUsedByIBPool.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByIBPoolValue
         LoadOtherValuesToControls()
         LoadAPBGameValuesToControls()
+        LoadInputValuesToControls()
     End Sub
     Public Shared Sub LoadCurrentBucket3ValuesToControls()
         DeclareCompatVarialbes.DeclareCompatVariablesAgainBucket3()
@@ -301,6 +303,7 @@
         Form1.TextBoxMaxFreeMemoryUsedByIBPool.Text = DeclareCompatVarialbes.MaxFreeMemoryUsedByIBPoolValue
         LoadOtherValuesToControls()
         LoadAPBGameValuesToControls()
+        LoadInputValuesToControls()
     End Sub
     Public Shared Sub LoadOtherValuesToControls()
         DeclareCompatVarialbes.DeclareOtherValuesAgain()
@@ -310,8 +313,27 @@
     End Sub
     Public Shared Sub LoadAPBGameValuesToControls()
         DeclareCompatVarialbes.APBGameValuesAgain()
-        Form1.CheckBoxm_bHideEnvironmentStreamingOnStartup.Checked = DeclareCompatVarialbes.m_bHideEnvironmentStreamingOnStartupValue
-        Form1.CheckBoxm_bHideCharacterStreamingOnStartup.Checked = DeclareCompatVarialbes.m_bHideCharacterStreamingOnStartupValue
-        Form1.CheckBoxm_bWaitForClosestBuildingLODOnly.Checked = DeclareCompatVarialbes.m_bWaitForClosestBuildingLODOnlyValue
+        If My.Computer.FileSystem.FileExists(Form1.APBGameSourceFile) Then
+            Form1.CheckBoxm_bHideEnvironmentStreamingOnStartup.Checked = DeclareCompatVarialbes.m_bHideEnvironmentStreamingOnStartupValue
+            Form1.CheckBoxm_bHideCharacterStreamingOnStartup.Checked = DeclareCompatVarialbes.m_bHideCharacterStreamingOnStartupValue
+            Form1.CheckBoxm_bWaitForClosestBuildingLODOnly.Checked = DeclareCompatVarialbes.m_bWaitForClosestBuildingLODOnlyValue
+        Else End If
+    End Sub
+    Public Shared Sub LoadInputValuesToControls()
+        DeclareCompatVarialbes.APBInputValuesAgain()
+        If My.Computer.FileSystem.FileExists(Form1.APBInputSourceFile) Then
+            Select Case DeclareCompatVarialbes.AlwaysSprintValue
+                Case """InputSprinting | OnRelease InputStopSprinting"")"
+                    Form1.CheckBoxAlwaysSprint.Checked = False
+                Case """InputStopSprinting | OnRelease InputSprinting"")"
+                    Form1.CheckBoxAlwaysSprint.Checked = True
+            End Select
+            Select Case DeclareCompatVarialbes.HoldCrouchValue
+                Case """Button m_bDuckButton | InputToggleDuck"")"
+                    Form1.CheckBoxHoldCrouch.Checked = False
+                Case """Button m_bDuckButton | InputToggleDuck | OnRelease InputToggleDuck"")"
+                    Form1.CheckBoxHoldCrouch.Checked = True
+            End Select
+        Else End If
     End Sub
 End Class
