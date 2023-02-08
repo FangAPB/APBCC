@@ -808,6 +808,11 @@ Partial Class Form1
         Me.CheckBoxHoldCrouch = New System.Windows.Forms.CheckBox()
         Me.LabelHoldCrouchCurrent1 = New System.Windows.Forms.Label()
         Me.LabelHoldCrouchCurrent2 = New System.Windows.Forms.Label()
+        Me.LabelMaxClientFrameRate = New System.Windows.Forms.Label()
+        Me.LabelMaxClientFrameRateCurrent1 = New System.Windows.Forms.Label()
+        Me.LabelMaxClientFrameRateCurrent2 = New System.Windows.Forms.Label()
+        Me.TextBoxMaxClientFrameRate = New System.Windows.Forms.TextBox()
+        Me.ButtonChangeDirectory = New System.Windows.Forms.Button()
         Me.SuspendLayout
         '
         'APBDirectoryFolderBrowserDialog
@@ -7812,7 +7817,7 @@ Partial Class Form1
         'LabelNoPersist
         '
         Me.LabelNoPersist.AutoSize = True
-        Me.LabelNoPersist.Location = New System.Drawing.Point(780, 0)
+        Me.LabelNoPersist.Location = New System.Drawing.Point(895, 0)
         Me.LabelNoPersist.Name = "LabelNoPersist"
         Me.LabelNoPersist.Size = New System.Drawing.Size(352, 13)
         Me.LabelNoPersist.TabIndex = 0
@@ -7948,34 +7953,6 @@ Partial Class Form1
         'LabelAlwaysSprintCurrent1
         '
         Me.LabelAlwaysSprintCurrent1.AutoSize = True
-        Me.LabelAlwaysSprintCurrent1.Location = New System.Drawing.Point(1366, 919)
-        Me.LabelAlwaysSprintCurrent1.Name = "LabelAlwaysSprintCurrent1"
-        Me.LabelAlwaysSprintCurrent1.Size = New System.Drawing.Size(44, 13)
-        Me.LabelAlwaysSprintCurrent1.TabIndex = 0
-        Me.LabelAlwaysSprintCurrent1.Text = "Current:"
-        '
-        'LabelAlwaysSprintCurrent2
-        '
-        Me.LabelAlwaysSprintCurrent2.AutoSize = True
-        Me.LabelAlwaysSprintCurrent2.Location = New System.Drawing.Point(1416, 919)
-        Me.LabelAlwaysSprintCurrent2.Name = "LabelAlwaysSprintCurrent2"
-        Me.LabelAlwaysSprintCurrent2.Size = New System.Drawing.Size(27, 13)
-        Me.LabelAlwaysSprintCurrent2.TabIndex = 0
-        Me.LabelAlwaysSprintCurrent2.Text = "OFF"
-        '
-        'CheckBoxAlwaysSprint
-        '
-        Me.CheckBoxAlwaysSprint.AutoSize = True
-        Me.CheckBoxAlwaysSprint.Location = New System.Drawing.Point(1271, 918)
-        Me.CheckBoxAlwaysSprint.Name = "CheckBoxAlwaysSprint"
-        Me.CheckBoxAlwaysSprint.Size = New System.Drawing.Size(89, 17)
-        Me.CheckBoxAlwaysSprint.TabIndex = 231
-        Me.CheckBoxAlwaysSprint.Text = "Always Sprint"
-        Me.CheckBoxAlwaysSprint.UseVisualStyleBackColor = True
-        '
-        'LabelAlwaysSprintCurrent1
-        '
-        Me.LabelAlwaysSprintCurrent1.AutoSize = True
         Me.LabelAlwaysSprintCurrent1.ForeColor = System.Drawing.Color.DarkBlue
         Me.LabelAlwaysSprintCurrent1.Location = New System.Drawing.Point(1356, 919)
         Me.LabelAlwaysSprintCurrent1.Name = "LabelAlwaysSprintCurrent1"
@@ -8021,11 +7998,61 @@ Partial Class Form1
         Me.LabelHoldCrouchCurrent2.TabIndex = 0
         Me.LabelHoldCrouchCurrent2.Text = "OFF"
         '
+        'LabelMaxClientFrameRate
+        '
+        Me.LabelMaxClientFrameRate.AutoSize = True
+        Me.LabelMaxClientFrameRate.Location = New System.Drawing.Point(1334, 839)
+        Me.LabelMaxClientFrameRate.Name = "LabelMaxClientFrameRate"
+        Me.LabelMaxClientFrameRate.Size = New System.Drawing.Size(105, 13)
+        Me.LabelMaxClientFrameRate.TabIndex = 0
+        Me.LabelMaxClientFrameRate.Text = "MaxClientFrameRate"
+        '
+        'LabelMaxClientFrameRateCurrent1
+        '
+        Me.LabelMaxClientFrameRateCurrent1.AutoSize = True
+        Me.LabelMaxClientFrameRateCurrent1.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LabelMaxClientFrameRateCurrent1.Location = New System.Drawing.Point(1439, 839)
+        Me.LabelMaxClientFrameRateCurrent1.Name = "LabelMaxClientFrameRateCurrent1"
+        Me.LabelMaxClientFrameRateCurrent1.Size = New System.Drawing.Size(44, 13)
+        Me.LabelMaxClientFrameRateCurrent1.TabIndex = 0
+        Me.LabelMaxClientFrameRateCurrent1.Text = "Current:"
+        '
+        'LabelMaxClientFrameRateCurrent2
+        '
+        Me.LabelMaxClientFrameRateCurrent2.Location = New System.Drawing.Point(1484, 839)
+        Me.LabelMaxClientFrameRateCurrent2.Name = "LabelMaxClientFrameRateCurrent2"
+        Me.LabelMaxClientFrameRateCurrent2.Size = New System.Drawing.Size(100, 13)
+        Me.LabelMaxClientFrameRateCurrent2.TabIndex = 0
+        Me.LabelMaxClientFrameRateCurrent2.Text = "llllllllllllll lllllllllllllllllllllllllllllll"
+        Me.LabelMaxClientFrameRateCurrent2.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'TextBoxMaxClientFrameRate
+        '
+        Me.TextBoxMaxClientFrameRate.Location = New System.Drawing.Point(1590, 836)
+        Me.TextBoxMaxClientFrameRate.Name = "TextBoxMaxClientFrameRate"
+        Me.TextBoxMaxClientFrameRate.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxMaxClientFrameRate.TabIndex = 236
+        '
+        'ButtonChangeDirectory
+        '
+        Me.ButtonChangeDirectory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonChangeDirectory.Location = New System.Drawing.Point(783, 8)
+        Me.ButtonChangeDirectory.Name = "ButtonChangeDirectory"
+        Me.ButtonChangeDirectory.Size = New System.Drawing.Size(104, 23)
+        Me.ButtonChangeDirectory.TabIndex = 237
+        Me.ButtonChangeDirectory.Text = "Change Directory"
+        Me.ButtonChangeDirectory.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1702, 955)
+        Me.Controls.Add(Me.ButtonChangeDirectory)
+        Me.Controls.Add(Me.TextBoxMaxClientFrameRate)
+        Me.Controls.Add(Me.LabelMaxClientFrameRateCurrent2)
+        Me.Controls.Add(Me.LabelMaxClientFrameRateCurrent1)
+        Me.Controls.Add(Me.LabelMaxClientFrameRate)
         Me.Controls.Add(Me.LabelAlwaysSprintCurrent2)
         Me.Controls.Add(Me.LabelAlwaysSprintCurrent1)
         Me.Controls.Add(Me.CheckBoxAlwaysSprint)
@@ -9608,4 +9635,9 @@ Partial Class Form1
     Friend WithEvents CheckBoxHoldCrouch As CheckBox
     Friend WithEvents LabelHoldCrouchCurrent1 As Label
     Friend WithEvents LabelHoldCrouchCurrent2 As Label
+    Friend WithEvents LabelMaxClientFrameRate As Label
+    Friend WithEvents LabelMaxClientFrameRateCurrent1 As Label
+    Friend WithEvents LabelMaxClientFrameRateCurrent2 As Label
+    Friend WithEvents TextBoxMaxClientFrameRate As TextBox
+    Friend WithEvents ButtonChangeDirectory As Button
 End Class

@@ -19,6 +19,7 @@ Public Class Form1
         'Updates these variables after a directory is chosen otherwise program will throw an exception
         'Because the APBInstallDir variable on program initialization may be empty or incorrect
         'and the following variables depend on APBInstallDir being proper, hence why all 3 need to be refreshed
+        'idk im bad at this
         APBInstallDir = My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\APBCompatConfigurator", "APBInstallDirectory", Nothing)
         'APBCompatSourceFile = APBInstallDir + "\APBGame\Config\APBCompat.ini"
         'APBCompat = New IniFile(APBCompatSourceFile)
@@ -48,7 +49,7 @@ Or
             CurrentValueLabels.SetCurrentValueLabels()
             CurrentValues.LoadCurrentValuesToControls()
             ComboBoxAPBCompatSection.SelectedItem = "AppCompatBucket1"
-            Me.Text = "APB Compat Configurator " + Me.GetType.Assembly.GetName.Version.ToString()
+            Me.Text = "APB Compat Configurator " + Me.GetType.Assembly.GetName.Version.ToString() + "   " + My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\APBCompatConfigurator", "APBInstallDirectory", Nothing)
             Me.AutoScroll = True
             For Each FormControl As Control In Me.Controls
                 If TypeOf FormControl Is Control Then
@@ -586,5 +587,72 @@ Please close " + "APB Compat Configurator " + Me.GetType.Assembly.GetName.Versio
 
     Private Sub Form1_Closing(sender As Object, e As EventArgs) Handles Me.Closing
         Dispose()
+    End Sub
+
+    Private Sub ButtonChangeDirectory_Click(sender As Object, e As EventArgs) Handles ButtonChangeDirectory.Click
+        Form1LoadEvents.SetAPBInstallPath()
+        Application.VisualStyleState = System.Windows.Forms.VisualStyles.VisualStyleState.NoneEnabled
+        Me.ShowInTaskbar = True
+        Form1LoadEvents.CheckAPBDirectoryExists()
+        'Updates these variables after a directory is chosen otherwise program will throw an exception
+        'Because the APBInstallDir variable on program initialization may be empty or incorrect
+        'and the following variables depend on APBInstallDir being proper, hence why all 3 need to be refreshed
+        'idk im bad at this
+        APBInstallDir = My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\APBCompatConfigurator", "APBInstallDirectory", Nothing)
+        'APBCompatSourceFile = APBInstallDir + "\APBGame\Config\APBCompat.ini"
+        'APBCompat = New IniFile(APBCompatSourceFile)
+        APBCompatSourceFile = APBInstallDir + "\APBGame\Config\APBCompat.ini"
+        APBCompat = New IniFile(APBCompatSourceFile)
+        BaseEngineSourceFile = APBInstallDir + "\Engine\Config\BaseEngine.ini"
+        BaseEngine = New IniFile(BaseEngineSourceFile)
+        APBGameSourceFile = APBInstallDir + "\APBGame\Config\APBGame.ini"
+        APBGame = New IniFile(APBGameSourceFile)
+        APBInputSourceFile = APBInstallDir + "\APBGame\Config\APBInput.ini"
+        APBInput = New IniFile(APBInputSourceFile)
+        If Not My.Computer.FileSystem.FileExists(Form1.APBCompatSourceFile) Or Not My.Computer.FileSystem.FileExists(Form1.BaseEngineSourceFile) Then
+            Me.Enabled = False
+            MsgBox("One or more essential .ini files could not be found.
+
+(" + APBInstallDir + "\APBGame\Config\APBCompat.ini" + ")
+
+Or
+
+(" + APBInstallDir + "\Engine\Config\BaseEngine.ini" + ")
+
+" + "APB Compat Configurator " + Me.GetType.Assembly.GetName.Version.ToString() + " will now close.")
+            Me.Close()
+        Else
+            FixScuff()
+            Form1LoadEvents.UnCommentSmoothFrameRates()
+            CurrentValueLabels.SetCurrentValueLabels()
+            CurrentValues.LoadCurrentValuesToControls()
+            ComboBoxAPBCompatSection.SelectedItem = "AppCompatBucket1"
+            Me.Text = "APB Compat Configurator " + Me.GetType.Assembly.GetName.Version.ToString() + "   " + My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\APBCompatConfigurator", "APBInstallDirectory", Nothing)
+            Me.AutoScroll = True
+            For Each FormControl As Control In Me.Controls
+                If TypeOf FormControl Is Control Then
+                    AddHandler FormControl.GotFocus, AddressOf ControlFocus
+                End If
+            Next
+            For Each TBoxTC As TextBox In Me.Controls.OfType(Of TextBox)()
+                AddHandler TBoxTC.TextChanged, AddressOf TextBox_TextChanged
+            Next
+            For Each TBoxKP As TextBox In Me.Controls.OfType(Of TextBox)()
+                AddHandler TBoxKP.KeyPress, AddressOf TextBox_KeyPress
+            Next
+            For Each CBOBox As ComboBox In Me.Controls.OfType(Of ComboBox)()
+                AddHandler CBOBox.MouseWheel, AddressOf ComboBox_MouseWheel
+            Next
+            Form1LoadEvents.Form1LoadTextboxSizesAndFilter()
+            ButtonImport.BackgroundImage = My.Resources.ResourceManager.GetObject("ImportButton")
+            ButtonExport.BackgroundImage = My.Resources.ResourceManager.GetObject("ExportButton")
+            TextBoxValuesMatch()
+            ComboBoxValuesMatch()
+            CheckBoxValuesMatch()
+            If Not My.Computer.FileSystem.FileExists(Form1.APBInputSourceFile) Or Not My.Computer.FileSystem.FileExists(Form1.APBGameSourceFile) Then
+                MsgBox("One or more files generated by APB on first launch could not be found, settings may not show or apply properly.
+Please close " + "APB Compat Configurator " + Me.GetType.Assembly.GetName.Version.ToString() + " and launch APB to generate the needed files then come back.")
+            End If
+        End If
     End Sub
 End Class

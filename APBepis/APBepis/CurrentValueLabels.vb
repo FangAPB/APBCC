@@ -310,6 +310,7 @@
         Form1.LabelMinSmoothedFrameRateCurrent2.Text = DeclareCompatVarialbes.MinSmoothedFrameRateValue
         Form1.LabelMaxSmoothedFrameRateCurrent2.Text = DeclareCompatVarialbes.MaxSmoothedFrameRateValue
         Form1.LabelMinDesiredFrameRateCurrent2.Text = DeclareCompatVarialbes.MinDesiredFrameRateValue
+        Form1.LabelMaxClientFrameRateCurrent2.Text = DeclareCompatVarialbes.MaxClientFrameRateValue
     End Sub
     Public Shared Sub SetAPBGameValueLabels()
         DeclareCompatVarialbes.APBGameValuesAgain()
@@ -317,7 +318,7 @@
             Form1.Labelm_bHideEnvironmentStreamingOnStartupCurrent2.Text = DeclareCompatVarialbes.m_bHideEnvironmentStreamingOnStartupValue
             Form1.Labelm_bHideCharacterStreamingOnStartupCurrent2.Text = DeclareCompatVarialbes.m_bHideCharacterStreamingOnStartupValue
             Form1.Labelm_bWaitForClosestBuildingLODOnlyCurrent2.Text = DeclareCompatVarialbes.m_bWaitForClosestBuildingLODOnlyValue
-            Else End If
+        Else End If
     End Sub
     Public Shared Sub SetInputValueLabels()
         DeclareCompatVarialbes.APBInputValuesAgain()

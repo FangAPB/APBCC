@@ -15,7 +15,7 @@
     End Sub
     Public Shared Sub SetAPBInstallPath()
         If Form1.APBDirectoryFolderBrowserDialog.ShowDialog() = Windows.Forms.DialogResult.Cancel Then
-            Form1.Close()
+            'Form1.Close()
         Else
             My.Computer.Registry.SetValue("HKEY_CURRENT_USER\SOFTWARE\APBCompatConfigurator", "APBInstallDirectory", Form1.APBDirectoryFolderBrowserDialog.SelectedPath)
             CheckAPBDirectoryExists()

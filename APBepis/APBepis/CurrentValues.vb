@@ -101,7 +101,12 @@
         Form1.TextBoxMaxLCVehicleTextureSize.Text = DeclareCompatVarialbes.MaxLCVehicleTextureSizeValue
         Form1.TextBoxSpawnMapDelayTime.Text = DeclareCompatVarialbes.SpawnMapDelayTimeValue
         Form1.CheckBoxLowQualityHealthHUD.Checked = DeclareCompatVarialbes.LowQualityHealthHUDValue
-        Form1.CheckBoxbUseSimplifiedVehicleMaterials.Checked = DeclareCompatVarialbes.bUseSimplifiedVehicleMaterialsValue
+        If Form1.APBCompat.GetString(Form1.APBCompatSection, "bUseSimplifiedVehicleMaterials", "(none)") Is Nothing Then
+        Else
+            Form1.CheckBoxbUseSimplifiedVehicleMaterials.Checked = DeclareCompatVarialbes.bUseSimplifiedVehicleMaterialsValue
+        End If
+
+
         Form1.CheckBoxSmoothFrameRate.Checked = DeclareCompatVarialbes.SmoothFrameRateValue
         '
         Form1.ComboBoxTEXCAT_UnknownMinLODSize.SelectedItem = DeclareCompatVarialbes.TEXCAT_UnknownMinLODSizeValue
@@ -310,6 +315,7 @@
         Form1.TextBoxMinSmoothedFrameRate.Text = DeclareCompatVarialbes.MinSmoothedFrameRateValue
         Form1.TextBoxMaxSmoothedFrameRate.Text = DeclareCompatVarialbes.MaxSmoothedFrameRateValue
         Form1.TextBoxMinDesiredFrameRate.Text = DeclareCompatVarialbes.MinDesiredFrameRateValue
+        Form1.TextBoxMaxClientFrameRate.Text = DeclareCompatVarialbes.MaxClientFrameRateValue
     End Sub
     Public Shared Sub LoadAPBGameValuesToControls()
         DeclareCompatVarialbes.APBGameValuesAgain()

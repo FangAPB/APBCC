@@ -338,6 +338,7 @@
     Public Shared MinSmoothedFrameRateValue As String = Form1.BaseEngine.GetString("Engine.GameEngine", "MinSmoothedFrameRate", "(none)")
     Public Shared MaxSmoothedFrameRateValue As String = Form1.BaseEngine.GetString("Engine.GameEngine", "MaxSmoothedFrameRate", "(none)")
     Public Shared MinDesiredFrameRateValue As String = Form1.BaseEngine.GetString("Engine.Client", "MinDesiredFrameRate", "(none)")
+    Public Shared MaxClientFrameRateValue As String = Form1.BaseEngine.GetString("Engine.GameEngine", "MaxClientFrameRate", "(none)")
     '---APBGame.ini---
     Public Shared m_bHideEnvironmentStreamingOnStartupValue As String = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideEnvironmentStreamingOnStartup", "(none)")
     Public Shared m_bHideCharacterStreamingOnStartupValue As String = Form1.APBGame.GetString("APBGame.cAPBPlayerController", "m_bHideCharacterStreamingOnStartup", "(none)")
@@ -790,7 +791,11 @@ Form1.Labelm_bHideCharacterStreamingOnStartupCurrent2,
 Form1.CheckBoxm_bWaitForClosestBuildingLODOnly,
 Form1.Labelm_bWaitForClosestBuildingLODOnlyCurrent1,
 Form1.Labelm_bWaitForClosestBuildingLODOnlyCurrent2,
-Form1.ButtonDefaults
+Form1.ButtonDefaults,
+Form1.LabelMaxClientFrameRate,
+Form1.LabelMaxClientFrameRateCurrent1,
+Form1.LabelMaxClientFrameRateCurrent2,
+Form1.TextBoxMaxClientFrameRate
     }
     Public Shared Sub DeclareCompatVariablesAgain()
         StaticDecalsValue = Form1.APBCompat.GetString(Form1.APBCompatSection, "StaticDecals", "(none)")
@@ -1248,6 +1253,7 @@ Form1.ButtonDefaults
         MinSmoothedFrameRateValue = Form1.BaseEngine.GetString("Engine.GameEngine", "MinSmoothedFrameRate", "(none)")
         MaxSmoothedFrameRateValue = Form1.BaseEngine.GetString("Engine.GameEngine", "MaxSmoothedFrameRate", "(none)")
         MinDesiredFrameRateValue = Form1.BaseEngine.GetString("Engine.Client", "MinDesiredFrameRate", "(none)")
+        MaxClientFrameRateValue = Form1.BaseEngine.GetString("Engine.GameEngine", "MaxClientFrameRate", "(none)")
         '!-!'!-!'Experimental'!-!'!-!'
         MaxDynamicChunkCountValue = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "MaxDynamicChunkCount", "(none)")
         DebrisLifetimeValue = Form1.BaseEngine.GetString("Engine.PhysicsLODVerticalDestructible", "DebrisLifetime", "(none)")
